@@ -6,9 +6,9 @@ if [[ !(-e $AUX_MOUNT) ]]; then
     exit 1
 fi
 
-if [ -n "$SHARPINIT_REMOTE" ]; then
+if [ -n "$SHARPINIT_RSYNC" ]; then
 	echo pulling sharpinit...
-	rsync -ur $SHARPINIT_REMOTE $SHARPINIT_PATH
+	rsync -ur $SHARPINIT_RSYNC $SHARPINIT_PATH
 elif [[ !(-d $SHARPINIT_PATH) ]]; then
 	echo $SHARPINIT_PATH is empty: exiting
 	exit 1
