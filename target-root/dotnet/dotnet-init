@@ -1,0 +1,10 @@
+#!/bin/sh
+source /etc/profile
+
+echo "Remounting / as rw..."
+dev_name=`mount | grep "on / type" | cut -d ' ' -f 0`
+echo "/ is $dev_name"
+mount -o remount,rw $dev_name /
+
+export SHARPINIT_IPC_FILE_WORLD_ACCESS=1
+exec /bin/sharpinit
